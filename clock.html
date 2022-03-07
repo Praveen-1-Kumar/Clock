@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+</head>
+<body>
+    
+    <div id="clock-container" style="display:flex; align-items: center; border:  2px solid black; justify-content: center; ">
+       
+         <span id="clockh" style="font-size: 150px;"> </span>
+         <span  style="font-size: 150px;  padding-bottom: 24px;" >:</span>
+         <span id="clockm" style="font-size: 150px; "> </span> 
+         <span style="font-size: 150px;  padding-bottom: 24px;" >:</span>
+         <span id="clocks" style="font-size: 150px; "> </span>
+       
+    
+    </div>
+</body>
+<script >
+    var second=1;
+    var min=0;
+    var hour=0;
+ var cidh=document.getElementById("clockh");
+ var cidm=document.getElementById("clockm");
+ var cids=document.getElementById("clocks");
+ 
+var timeout=setInterval(timecount,1000);
+
+
+
+function timecount(){    
+  second=second+1;
+  if((second%60)==0){
+     min=min+1;
+     second=1;
+    }
+    
+   if(((min%60)==0)&&(min!=0)){
+      hour=hour+1;
+      min=0;
+      second=1;
+   }
+
+ 
+cidh.innerText=hour;
+cidm.innerText=min;
+cids.innerText=second;
+}
+
+
+</script>
+</html>
